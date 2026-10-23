@@ -12,7 +12,6 @@ RUN apt-get update \
         libxml2-dev \
         libpq-dev \
         libicu-dev \
-        libmagickwand-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j"$(nproc)" \
         pdo_mysql \
@@ -27,9 +26,8 @@ RUN apt-get update \
         bcmath \
         pcntl \
         sockets \
-        opcache \
-    && pecl install redis imagick \
-    && docker-php-ext-enable redis imagick \
+    && pecl install redis \
+    && docker-php-ext-enable redis \
     && a2enmod rewrite headers \
     && rm -rf /var/lib/apt/lists/*
 
