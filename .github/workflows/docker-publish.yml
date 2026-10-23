@@ -5,6 +5,7 @@ on:
   push:
     tags:
       - '*-apache'
+      - '*-apache-r[0-9]*'
 
 permissions:
   contents: read
